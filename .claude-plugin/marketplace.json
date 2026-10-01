@@ -1,0 +1,16 @@
+{
+  "name": "blockreq",
+  "owner": {
+    "name": "BlockReq"
+  },
+  "metadata": {
+    "description": "Agent Skills for using BlockReq RPC from AI coding assistants."
+  },
+  "plugins": [
+    {
+      "name": "blockreq-rpc",
+      "source": "./plugins/blockreq-rpc",
+      "description": "Call EVM JSON-RPC through BlockReq: network hosts, public trial vs API key, WSS, archive/proof/debug/trace methods, Request Counting, and common errors."
+    }
+  ]
+}

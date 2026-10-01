@@ -1,0 +1,43 @@
+# Pulls the blockreq-rpc skill that the BlockReq Docs build publishes, so blockreq.com stays the single source.
+name: Sync skill from blockreq.com
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-skill
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+
+      - name: Download the published skill
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 3 -o "$RUNNER_TEMP/skill.zip" https://blockreq.com/docs/agent-skills/blockreq-rpc.zip
+          mkdir "$RUNNER_TEMP/skill"
+          unzip -q "$RUNNER_TEMP/skill.zip" -d "$RUNNER_TEMP/skill"
+          grep -q '^name: blockreq-rpc$' "$RUNNER_TEMP/skill/blockreq-rpc/SKILL.md"
+          dest=plugins/blockreq-rpc/skills/blockreq-rpc
+          rm -rf "$dest"
+          cp -R "$RUNNER_TEMP/skill/blockreq-rpc" "$dest"
+
+      - name: Commit changes
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain)" ]; then echo "Skill unchanged"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A plugins
+          git commit -m "Sync blockreq-rpc skill from blockreq.com"
+          git push
