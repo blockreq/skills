@@ -96,6 +96,10 @@ assert w3.eth.chain_id == 1
 - The public trial is not a free production tier: it is rate-limited and does not promise deep history, debug, or trace. Use a private endpoint.
 - Proof, debug, and trace outside the archive families above are not documented; confirm in reference/methods.md first.
 
+## MCP server
+
+If your agent supports MCP, add https://mcp.blockreq.com/mcp (Streamable HTTP). It is public, free, and read-only, with the tools `list_chains`, `get_chain`, `search_docs`, `get_doc_page`, `get_method_reference`, `call_rpc`. Without credentials `call_rpc` uses the rate-limited public trial endpoint; connect with `Authorization: Bearer <API key>` (from the `BLOCKREQ_API_KEY` environment variable, never hard-coded) and it uses your own endpoint and quota; hosted clients such as Claude.ai connect to https://mcp.blockreq.com/mcp/account and sign in instead. Use it for lookups and checks, not production traffic. It cannot sign or send transactions.
+
 ## More
 
 - Per-network OpenRPC: https://blockreq.com/docs/openrpc/index.json
