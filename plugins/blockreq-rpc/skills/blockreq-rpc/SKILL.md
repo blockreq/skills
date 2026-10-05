@@ -5,7 +5,7 @@ description: "Use when writing, configuring, or debugging code that calls EVM JS
 
 # BlockReq RPC
 
-BlockReq serves JSON-RPC for 26 published networks; 25 are EVM networks with a documented JSON-RPC method set. Facts below are generated from BlockReq's catalogs; the full docs are at https://blockreq.com/docs/llms.txt.
+BlockReq serves JSON-RPC for 25 published networks; 24 are EVM networks with a documented JSON-RPC method set. Facts below are generated from BlockReq's catalogs; the full docs are at https://blockreq.com/docs/llms.txt.
 
 ## Endpoint URLs
 
@@ -13,11 +13,11 @@ Every network has its own host. Hosts are not guessable (for example `arbitrum-o
 
 - Private: `https://<host>/v1/rpc/<API key>`. Create an endpoint at https://blockreq.com/dashboard to get a key. Read it from an environment variable such as `BLOCKREQ_API_KEY`; never hard-code or commit it.
 - Public trial: `https://<host>/v1/rpc/public`. Rate-limited, and it does not promise deep history, debug, or trace. Use it to try calls, not for production.
-- WebSocket: `wss://<host>/v1/rpc/<API key>` or `wss://<host>/v1/rpc/public` on all 25 EVM networks.
+- WebSocket: `wss://<host>/v1/rpc/<API key>` or `wss://<host>/v1/rpc/public` on all 24 EVM networks.
 
 ## Which methods work where
 
-- 25 EVM networks share the standard `eth_*`, `net_*`, and `web3_*` methods. Per-method availability: [reference/methods.md](reference/methods.md).
+- 24 EVM networks share the standard `eth_*`, `net_*`, and `web3_*` methods. Per-method availability: [reference/methods.md](reference/methods.md).
 - `debug_traceBlockByNumber`, `debug_traceCall`, `debug_traceTransaction`, `eth_getProof`, `trace_block`, `trace_filter`, `trace_transaction` are documented only for archive networks in the ethereum, bsc, arbitrum, base, polygon families: Ethereum, Base, Arbitrum One, Polygon, BSC, Ethereum Sepolia, Base Sepolia, Arbitrum Sepolia, Polygon Amoy. Do not rely on them elsewhere.
 - `eth_getBlobSidecarByTxHash`, `eth_getBlobSidecars`, `eth_getFinalizedBlock`, `eth_getFinalizedHeader`, `eth_getTransactionsByBlockNumber`, `eth_health` exist only on BSC.
 - `eth_subscribe` and `eth_unsubscribe` need WSS; over HTTPS they fail.
