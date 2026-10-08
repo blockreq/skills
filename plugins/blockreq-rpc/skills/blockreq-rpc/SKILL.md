@@ -27,10 +27,7 @@ Every network has its own host. Hosts are not guessable (for example `arbitrum-o
 
 ## Request Counting and plans
 
-- Each authenticated JSON-RPC item counts as 1 Request, including reverts; each batch item counts on its own method; each delivered WSS notification counts as 1. HTTP `eth_getLogs` is 1 regardless of block range.
-- Counts as 3: `eth_getBlockReceipts`, `eth_getProof`.
-- Counts as 5: `debug_traceCall`, `debug_traceTransaction`, `trace_filter`, `trace_transaction`.
-- Counts as 20: `debug_traceBlockByNumber`, `trace_block`.
+- Every request counts as 1 Request, whatever the method (proof, debug, and trace included) and even when it reverts. A batch of N calls counts N. Each WebSocket request counts 1, and each message pushed to a subscription counts 1.
 - Zero: method not found and other non-execution errors, authentication or policy rejections, `429`, gateway `5xx`, and public-trial traffic.
 - Free: 3,000,000 Requests per 30 days, 10 sustained / 30 burst requests per second, batch size 5, 2 WSS connections / 5 active subscriptions. After prepaid Requests: $3.90 per 1M Requests used. Plan limits: https://blockreq.com/docs/pricing/plans/index.md
 
