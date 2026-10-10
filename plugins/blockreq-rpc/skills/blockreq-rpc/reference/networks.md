@@ -21,7 +21,7 @@ Generated from BlockReq's production catalog; the same data is in https://blockr
 | Celo | evm | `42220` (`0xa4ec`) | `celo-rpc.blockreq.com` | yes | archive | no | [docs](https://blockreq.com/docs/build/api-reference/celo/index.md) · [OpenRPC](https://blockreq.com/docs/openrpc/celo.json) |
 | Sonic | evm | `146` (`0x92`) | `sonic-rpc.blockreq.com` | yes | archive | no | [docs](https://blockreq.com/docs/build/api-reference/sonic/index.md) · [OpenRPC](https://blockreq.com/docs/openrpc/sonic.json) |
 | Cronos | evm | `25` (`0x19`) | `cronos-rpc.blockreq.com` | yes | archive | no | [docs](https://blockreq.com/docs/build/api-reference/cronos/index.md) · [OpenRPC](https://blockreq.com/docs/openrpc/cronos.json) |
-| Arc | evm | `5042` (`0x13b2`) | `arc-rpc.blockreq.com` | yes | full | no | [docs](https://blockreq.com/docs/build/api-reference/arc/index.md) · [OpenRPC](https://blockreq.com/docs/openrpc/arc.json) |
+| Arc | evm | `5042` (`0x13b2`) | `arc-rpc.blockreq.com` | yes | archive | no | [docs](https://blockreq.com/docs/build/api-reference/arc/index.md) · [OpenRPC](https://blockreq.com/docs/openrpc/arc.json) |
 | Ethereum Beacon Chain | beacon | `1` (`0x1`) | `ethereum-beacon-rpc.blockreq.com` | no | full | no |  |
 | Ethereum Sepolia | evm | `11155111` (`0xaa36a7`) | `ethereum-sepolia-rpc.blockreq.com` | yes | archive | yes | [docs](https://blockreq.com/docs/build/api-reference/ethereum-sepolia/index.md) · [OpenRPC](https://blockreq.com/docs/openrpc/ethereum-sepolia.json) |
 | Base Sepolia | evm | `84532` (`0x14a34`) | `base-sepolia-rpc.blockreq.com` | yes | archive | yes | [docs](https://blockreq.com/docs/build/api-reference/base-sepolia/index.md) · [OpenRPC](https://blockreq.com/docs/openrpc/base-sepolia.json) |

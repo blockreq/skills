@@ -21,7 +21,6 @@ Every network has its own host. Hosts are not guessable (for example `arbitrum-o
 - `debug_traceBlockByNumber`, `debug_traceCall`, `debug_traceTransaction`, `eth_getProof`, `trace_block`, `trace_filter`, `trace_transaction` are documented only for archive networks in the ethereum, bsc, arbitrum, base, polygon families: Ethereum, Base, Arbitrum One, Polygon, BSC, Ethereum Sepolia, Base Sepolia, Arbitrum Sepolia, Polygon Amoy. Do not rely on them elsewhere.
 - `eth_getBlobSidecarByTxHash`, `eth_getBlobSidecars`, `eth_getFinalizedBlock`, `eth_getFinalizedHeader`, `eth_getTransactionsByBlockNumber`, `eth_health` exist only on BSC.
 - `eth_subscribe` and `eth_unsubscribe` need WSS; over HTTPS they fail.
-- Arc serves full-node data: old-block state is not available, so query recent blocks.
 - Polygon, Polygon Amoy: the public trial serves latest state only. `debug_traceBlockByNumber`, `debug_traceCall`, `debug_traceTransaction`, `eth_getFilterChanges`, `eth_getFilterLogs`, `eth_getProof`, `eth_newBlockFilter`, `eth_newFilter`, `eth_newPendingTransactionFilter`, `eth_uninstallFilter`, `trace_block`, `trace_filter`, `trace_transaction` need a private endpoint there.
 - The Free plan does not include `debug_*`, `trace_*`, or `txpool_*`; they need a paid Request Pack or pay-as-you-go.
 
